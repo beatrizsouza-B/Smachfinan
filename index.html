@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FinanSmart AI | Controle Financeiro</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <aside class="sidebar">
+        <h2 class="logo">Finan<span>Smart</span></h2>
+
+        <nav>
+            <a href="#dashboard" class="active">▦ Dashboard</a>
+            <a href="#transactions">↔ Transações</a>
+            <a href="#new-transaction">＋ Adicionar lançamento</a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <p>Seu dinheiro sob controle.</p>
+            <small>FinanSmart AI © 2027</small>
+        </div>
+    </aside>
+
+    <main class="main-content" id="dashboard">
+
+        <header class="topbar">
+            <div>
+                <p class="subtitle">VISÃO GERAL</p>
+                <h1>Dashboard financeiro</h1>
+            </div>
+
+            <div class="user">
+                <div class="avatar">U</div>
+                <span>Meu painel</span>
+            </div>
+        </header>
+
+        <section class="welcome">
+            <div>
+                <p>Bem-vindo ao FinanSmart AI 👋</p>
+                <h2>Organize seu dinheiro. Construa seu futuro.</h2>
+            </div>
+        </section>
+
+        <!-- INDICADORES -->
+
+        <section class="cards">
+
+            <div class="card">
+                <p>Saldo disponível</p>
+                <h2 id="balance">R$ 0,00</h2>
+                <span>Receitas - despesas</span>
+            </div>
+
+            <div class="card">
+                <p>Total de receitas</p>
+                <h2 id="income">R$ 0,00</h2>
+                <span>Dinheiro que entrou</span>
+            </div>
+
+            <div class="card">
+                <p>Total de despesas</p>
+                <h2 id="expense">R$ 0,00</h2>
+                <span>Dinheiro que saiu</span>
+            </div>
+
+        </section>
+
+        <!-- NOVA TRANSAÇÃO -->
+
+        <section class="panel" id="new-transaction">
+
+            <div class="section-title">
+                <div>
+                    <p class="subtitle">GERENCIAMENTO</p>
+                    <h2>Nova movimentação</h2>
+                </div>
+            </div>
+
+            <form id="transaction-form">
+
+                <div class="form-group">
+                    <label for="description">Descrição</label>
+                    <input
+                        type="text"
+                        id="description"
+                        placeholder="Ex: Salário, alimentação..."
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="amount">Valor (R$)</label>
+                    <input
+                        type="number"
+                        id="amount"
+                        placeholder="0,00"
+                        min="0.01"
+                        step="0.01"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="type">Tipo de movimentação</label>
+                    <select id="type">
+                        <option value="income">Receita</option>
+                        <option value="expense">Despesa</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="category">Categoria</label>
+                    <select id="category">
+                        <option value="Salário">Salário</option>
+                        <option value="Vendas">Vendas</option>
+                        <option value="Alimentação">Alimentação</option>
+                        <option value="Moradia">Moradia</option>
+                        <option value="Transporte">Transporte</option>
+                        <option value="Saúde">Saúde</option>
+                        <option value="Lazer">Lazer</option>
+                        <option value="Outros">Outros</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn-primary">
+                    + Adicionar movimentação
+                </button>
+
+            </form>
+
+        </section>
+
+        <!-- HISTÓRICO -->
+
+        <section class="panel" id="transactions">
+
+            <div class="section-title">
+                <div>
+                    <p class="subtitle">ACOMPANHAMENTO</p>
+                    <h2>Últimas movimentações</h2>
+                </div>
+            </div>
+
+            <div class="table-container">
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Descrição</th>
+                            <th>Categoria</th>
+                            <th>Tipo</th>
+                            <th>Valor</th>
+                            <th>Ação</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="transaction-list">
+                        <tr>
+                            <td colspan="5">Nenhuma movimentação cadastrada.</td>
+                        </tr>
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+        <!-- GRÁFICO -->
+
+        <section class="panel">
+            <p class="subtitle">ANÁLISE FINANCEIRA</p>
+            <h2>Receitas x Despesas</h2>
+            <canvas id="finance-chart"></canvas>
+        </section>
+
+        <footer>
+            FinanSmart AI © 2027 — Inteligência financeira ao seu alcance.
+        </footer>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
